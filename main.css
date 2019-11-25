@@ -22,3 +22,8 @@ body {
     font-family: "IBM Plex Serif", Georgia, 'Times New Roman', Times, serif;
     width: 500px
 }
+
+.bubble {
+    margin-left: 125px;
+    font-family: "IBM Plex Serif", Georgia, 'Times New Roman', Times, serif;
+}

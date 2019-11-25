@@ -1,7 +1,7 @@
 'use strict';
 
 const JSONFileName = 'https://raw.githubusercontent.com/castrojoshua18/castrojoshua18.github.io/master/assets/final_chadwick.json?token=AKL7YHHPQNTYAFK2Y4COJC254SZ3U';
-var genreCounts = new Map();
+var fullData;
 
 Highcharts.ajax({
     url: JSONFileName,
@@ -9,22 +9,8 @@ Highcharts.ajax({
     success: function (activity) {
 
         activity = JSON.parse(activity);
-
-        // for (var i = 0; i < activity['genres'].length; i++) {
-        //     to_check = activity['genres'][i];
-        //     console.log(i)
-        //     for (var j = 0; j < to_check.length; j++) {
-        //         curr_genre = to_check[j];
-        //         console.log(curr_genre)
-        //         if (genreCounts.has(curr_genre)) {
-        //             curr_val  = genreCounts.get(curr_genre)
-        //             genreCounts.set(curr_genre, curr_val+1)
-        //         }
-        //         else {
-        //             genreCounts.set(curr_genre, 0)
-        //         }
-        //     }
-        // }
+        console.log(activity);
+        fullData = activity;
 
         var timelineDiv = document.createElement('div');
         timelineDiv.className = 'timeline';
@@ -50,7 +36,7 @@ Highcharts.ajax({
                 enabled: false
             },
             title: {
-                text: "How have Chadwick Boseman's roles evolved?"
+                text: "Chadwick Boseman has almost equally lead as many movies as he has been a non-lead role."
             },
             subtitle: {
                 text: "Fig. 1: A visualized transition of Boseman's role in featured movies (U.S. domestic)"
@@ -101,7 +87,7 @@ Highcharts.ajax({
                     },
                     {
                         x: Date.UTC(2014, 7, 1),
-                        name: 'Get on Up (2013)',
+                        name: 'Get on Up (2014)',
                         label: 'Lead',
                         description: "Part: James Brown",
                         dataLabels: {
@@ -176,7 +162,7 @@ Highcharts.ajax({
             },
         
             title: {
-                text: 'Does Chadwick Boseman have a favorite movie genre to act in?'
+                text: 'Chadwick Boseman has almost uniformly starred in a number of movies in different genres.'
             },
         
             subtitle: {
@@ -235,6 +221,131 @@ Highcharts.ajax({
                 data: [6, 2, 7, 1, 5, 5, 4, 3, 1, 1]
             }]
         })
+
+        var bubbleDiv = document.createElement('div');
+        bubbleDiv.className = 'bubble';
+        document.getElementById('bubble').append(bubbleDiv);
+
+        Highcharts.chart(bubbleDiv, {
+            chart: {
+                type: 'packedbubble',
+                backgroundColor: 'transparent',
+            },
+        
+            title: {
+                text: "Movies featuring Chadwick Boseman earned the most money in 2018"
+            },
+        
+            subtitle: {
+                text: "Fig. 2: Comparison of Total Domestic Earnings (USD) of movies featuring Chadwick Boseman (US Domestic) per year" +
+                "<br/> Names of movies earning over $100,000,000 shown" 
+            },
+
+            credits: {
+                enabled: false
+            },
+
+            tooltip: {
+                useHTML: true,
+                pointFormat: '<b>{point.name}:</b> {point.value}'
+            },
+
+            plotOptions: {
+                packedbubble: {
+                    minSize: '10%',
+                    maxSize: '90%',
+                    zMin: 0,
+                    zMax: 1000,
+                    layoutAlgorithm: {
+                        gravitationalConstant: 0.05,
+                        splitSeries: true,
+                        seriesInteraction: false,
+                        dragBetweenSeries: false,
+                        parentNodeLimit: true
+                    },
+                    allowOverlap: false,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}',
+                        filter: {
+                            property: 'y',
+                            operator: '>',
+                            value: 100000000
+                        },
+                        style: {
+                            color: 'black',
+                            textOutline: 'none',
+                            fontWeight: 'normal'
+                        }
+                    }
+                }
+            },
+
+            series : [
+                {
+                    name: 2008,
+                    data: [{
+                        name: 'The Express (2008)',
+                        value: 9793406
+                    }]
+                },
+                {
+                    name: 2013,
+                    data: [{
+                        name: '42 (2013)',
+                        value: 95020213
+                    }]
+                },
+                {
+                    name: 2014,
+                    data:[{
+                        name: 'Draft Day (2014)',
+                        value: 28842237
+                    }, 
+                    {
+                        name: 'Get on Up (2014)',
+                        value: 30703100
+                    }]
+                },
+                {
+                    name: 2016,
+                    data: [{
+                        name: 'Gods of Egypt (2016)',
+                        value: 31153464
+                    }, {
+                        name: 'Captain America: Civil War (2016)',
+                        value: 408084349
+                    }]
+                }, 
+                {
+                    name: 2017, 
+                    data: [{
+                        name: "Marshall (2017)",
+                        value: 10051659
+                    }]
+                }, {
+                    name: 2018,
+                    data: [{
+                        name: 'Black Panther (2018)',
+                        value: 700059566
+                    }, 
+                    {
+                        name: 'Avengers: Infinity War (2018)',
+                        value: 678815482
+                    }]
+                }, {
+                    name: 2019,
+                    data: [{
+                        name: 'Avengers: Endgame (2019)',
+                        value: 858373000
+                    }, {
+                        name: '21 Bridges (2019)',
+                        value: 9300000
+                    }]
+                }
+            ]
+        })
+
 
     }
 
