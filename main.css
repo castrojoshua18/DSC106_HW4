@@ -8,5 +8,12 @@ body {
     background-color: #faf0cf;
     margin-left: 50px;
     font-family: "IBM Plex Serif", Georgia, 'Times New Roman', Times, serif;
-    width: 1300px
+    width: 1300px;
+    height: 400px
+}
+
+.radar {
+    margin-left: 50px;
+    font-family: "IBM Plex Serif", Georgia, 'Times New Roman', Times, serif;
+    width: 500px
 }

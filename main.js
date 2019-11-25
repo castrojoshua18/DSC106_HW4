@@ -86,7 +86,7 @@ Highcharts.ajax({
                     },
                     {
                         x: Date.UTC(2013, 3, 12),
-                        name: '42',
+                        name: '42 (2013)',
                         label: 'Lead',
                         description: "Part: Jackie Robinson",
                         dataLabels: {
@@ -95,13 +95,13 @@ Highcharts.ajax({
                     },
                     {
                         x: Date.UTC(2014, 5, 22),
-                        name: 'Draft Day',
+                        name: 'Draft Day (2014)',
                         label: 'Support',
                         description: "Part: Vontae Mack"
                     },
                     {
                         x: Date.UTC(2014, 7, 1),
-                        name: 'Get on Up ',
+                        name: 'Get on Up (2013)',
                         label: 'Lead',
                         description: "Part: James Brown",
                         dataLabels: {
@@ -110,19 +110,19 @@ Highcharts.ajax({
                     },
                     {
                         x: Date.UTC(2016, 1, 26),
-                        name: 'Gods of Egypt',
+                        name: 'Gods of Egypt (2016)',
                         label: 'Support',
                         description: "Part: Thoth"
                     },
                     {
                         x: Date.UTC(2016, 4, 6),
-                        name: 'Captain America: Civil War',
+                        name: 'Captain America: Civil War (2016)',
                         label: 'Support',
                         description: "Part: T'Challa - Black Panther"
                     },
                     {
                         x: Date.UTC(2017, 9, 13),
-                        name: 'Marshall',
+                        name: 'Marshall (2017)',
                         label: 'Lead',
                         description: "Part: Thurgood Marshall",
                         dataLabels: {
@@ -131,7 +131,7 @@ Highcharts.ajax({
                     },
                     {
                         x: Date.UTC(2018, 1, 16),
-                        name: 'Black Panther',
+                        name: 'Black Panther (2018)',
                         label: 'Lead',
                         description: "Part: T'Challa - Black Panther",
                         dataLabels: {
@@ -140,19 +140,19 @@ Highcharts.ajax({
                     },
                     {
                         x: Date.UTC(2018, 3, 27),
-                        name: 'Avengers: Infinity War',
+                        name: 'Avengers: Infinity War (2018)',
                         label: 'Support',
                         description: "Part: T'Challa - Black Panther"
                     },
                     {
                         x: Date.UTC(2019, 3, 26),
-                        name: 'Avengers: Endgame',
+                        name: 'Avengers: Endgame (2019)',
                         label: 'Support',
                         description: "Part: T'Challa - Black Panther"
                     },
                     {
                         x: Date.UTC(2019, 10, 22),
-                        name: '21 Bridges',
+                        name: '21 Bridges (2019)',
                         label: 'Lead',
                         description: "Part: Andre Davis",
                         dataLabels: {
@@ -164,11 +164,76 @@ Highcharts.ajax({
         })
 
         var radarDiv = document.createElement('div');
-        radarDiv.className = 'timeline';
+        radarDiv.className = 'radar';
         document.getElementById('radar').append(radarDiv);
 
         Highcharts.chart(radarDiv, {
-            
+            chart: {
+                type: 'area',
+                polar: true,
+                backgroundColor: 'transparent',
+                color: '#ebd5c0'
+            },
+        
+            title: {
+                text: 'Does Chadwick Boseman have a favorite movie genre to act in?'
+            },
+        
+            subtitle: {
+                text: "Fig. 3: Categorized comparison of the number of movies featuring Boseman per genre (U.S. Domestic)"
+            },
+        
+            pane: {
+                startAngle: 0,
+                endAngle: 360
+            },
+        
+            xAxis: {
+                tickInterval: 36,
+                min: 0,
+                max: 360,
+                labels: {
+                    formatter: function () {
+                        var list_labels = ['Action', 'Crime', 'Drama', 'Thriller', 'Adventure', 
+                        'Sci-Fi / Fantasy', 'Biography', 'Sport', 'History','Music'];
+                        var i = this.value / 36;
+                        return list_labels[i];
+                    } 
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    var list_labels = ['Action', 'Crime', 'Drama', 'Thriller', 'Adventure', 
+                        'Sci-Fi / Fantasy', 'Biography', 'Sport', 'History','Music'];
+                    var i = this.x / 36;
+                    return '<b>'+ list_labels[i] +'</b>: '+ this.y ;
+                }
+            },
+            yAxis: {
+                min: 0
+            },
+            legend: {
+                enabled: false
+            },
+            credits: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    pointStart: 0,
+                    pointInterval: 36
+                },
+                column: {
+                    pointPadding: 0,
+                    groupPadding: 0
+                }
+            },
+        
+            series: [{
+                type: 'area',
+                color: '#c9af95',
+                data: [6, 2, 7, 1, 5, 5, 4, 3, 1, 1]
+            }]
         })
 
     }
