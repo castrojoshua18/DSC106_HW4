@@ -3,3 +3,10 @@ body {
     color: #333;
     font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
 }
+
+.timeline {
+    background-color: #faf0cf;
+    margin: 0;
+    font-family: "IBM Plex Serif", Georgia, 'Times New Roman', Times, serif;
+    width: 500px
+}
