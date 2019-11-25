@@ -1,6 +1,6 @@
 'use strict';
 
-const JSONFileName = 'https://raw.githubusercontent.com/castrojoshua18/castrojoshua18.github.io/master/assets/final_chadwick.json?token=AKL7YHEBKYACLQOJYYF5PEK54SY2G';
+const JSONFileName = 'https://raw.githubusercontent.com/castrojoshua18/castrojoshua18.github.io/master/assets/final_chadwick.json?token=AKL7YHDDWJX7I3MDH4A534S54SZWA';
 var genreCounts = new Map();
 
 Highcharts.ajax({
