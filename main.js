@@ -238,7 +238,7 @@ Highcharts.ajax({
         
             subtitle: {
                 text: "Fig. 2: Comparison of Total Domestic Earnings (USD) of movies featuring Chadwick Boseman (US Domestic) per year" +
-                "<br/> Names of movies earning over $100,000,000 shown" 
+                "<br/> Note: names of movies earning over $100,000,000 shown" 
             },
 
             credits: {
@@ -247,7 +247,7 @@ Highcharts.ajax({
 
             tooltip: {
                 useHTML: true,
-                pointFormat: '<b>{point.name}:</b> {point.value}'
+                pointFormat: '<b>{point.name}:</b> ${point.value}'
             },
 
             plotOptions: {

@@ -2,6 +2,7 @@ body {
     background-color: #faf0cf;
     color: #333;
     font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+    margin-left: 50px
 }
 
 .pageLogo {
@@ -11,19 +12,17 @@ body {
 
 .timeline {
     background-color: #faf0cf;
-    margin-left: 50px;
     font-family: "IBM Plex Serif", Georgia, 'Times New Roman', Times, serif;
     width: 1300px;
     height: 400px
 }
 
 .radar {
-    margin-left: 50px;
     font-family: "IBM Plex Serif", Georgia, 'Times New Roman', Times, serif;
     width: 500px
 }
 
 .bubble {
-    margin-left: 125px;
+    margin-left: 75px;
     font-family: "IBM Plex Serif", Georgia, 'Times New Roman', Times, serif;
 }
