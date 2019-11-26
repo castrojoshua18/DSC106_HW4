@@ -41,6 +41,9 @@ Highcharts.ajax({
             subtitle: {
                 text: "Fig. 1: A visualized transition of Boseman's role in featured movies (U.S. domestic)"
             },
+            tooltip: {
+                snap: 100
+            },
             colors: [
                 '#c9af95',
                 '#b59a7f',
@@ -188,6 +191,7 @@ Highcharts.ajax({
                 }
             },
             tooltip: {
+                snap: 100,
                 formatter: function() {
                     var list_labels = ['Action', 'Crime', 'Drama', 'Thriller', 'Adventure', 
                         'Sci-Fi / Fantasy', 'Biography', 'Sport', 'History','Music'];
@@ -247,7 +251,8 @@ Highcharts.ajax({
 
             tooltip: {
                 useHTML: true,
-                pointFormat: '<b>{point.name}:</b> ${point.value}'
+                pointFormat: '<b>{point.name}:</b> ${point.value}',
+                snap: 100
             },
 
             plotOptions: {
