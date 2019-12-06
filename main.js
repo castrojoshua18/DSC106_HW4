@@ -1,6 +1,6 @@
 'use strict';
 
-const JSONFileName = 'https://raw.githubusercontent.com/castrojoshua18/castrojoshua18.github.io/master/assets/final_chadwick.json?token=AKL7YHHPQNTYAFK2Y4COJC254SZ3U';
+const JSONFileName = 'https://raw.githubusercontent.com/castrojoshua18/castrojoshua18.github.io/master/assets/final_chadwick.json?token=AKL7YHFJS2WUHANDQOL4OGC56MLDG';
 var fullData;
 
 Highcharts.ajax({
